@@ -69,7 +69,9 @@ do_compile_prepend_kc705-microblazeel() {
 }
 
 do_compile_prepend() {
-	[ -e ${DTS_FILES_PATH}/system.dts ] && rm ${DTS_FILES_PATH}/system.dts
+	if [ -e ${DTS_FILES_PATH}/system.dts ]; then
+		rm ${DTS_FILES_PATH}/system.dts
+	fi
 }
 
 DTB_BASE_NAME ?= "${MACHINE}-system-${DATETIME}"
